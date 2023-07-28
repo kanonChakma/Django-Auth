@@ -58,6 +58,9 @@ DATABASES = {
         conn_max_age=600,
     )
 }
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -86,3 +89,6 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGIN_REDIRECT_URL = "/home"
+LOGOUT_REDIRECT_URL = "/login"
