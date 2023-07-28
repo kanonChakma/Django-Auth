@@ -1,11 +1,14 @@
+import os
 from pathlib import Path
 
 import dj_database_url
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "django-insecure-2340l7fk3k&i*n24+4-5q98h(qlmcs33)zvzhf8u-&inh$lcgp"
-
+SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -54,7 +57,7 @@ WSGI_APPLICATION = "website.wsgi.application"
 
 DATABASES = {
     "default": dj_database_url.config(
-        default="",
+        default=os.environ.get("DATABASE_URL"),
         conn_max_age=600,
     )
 }
